@@ -14,23 +14,34 @@ const colors = ["#1abc9c", "#3498db", "#9b59b6", "#f39c12", "#e74c3c"];
 */
 
 let my_title = document.getElementsByTagName("h2");
-window.addEventListener("resize", () => {
-  my_title[0].innerHTML = "resize";
-  my_title[0].style.color = colors[0];
-});
+const superEventHandler = {
+  'mouseMoveOn': () => {
+    my_title[0].innerHTML = "mouse move on";
+    my_title[0].style.color = colors[1];
+  },
 
-window.addEventListener("contextmenu", () => {
-  my_title[0].innerHTML = "mouse right click";
-  my_title[0].style.color = colors[3];
-});
+  'mouseLeaveOut': () => {
+    my_title[0].innerHTML = "mouse leave out";
+    my_title[0].style.color = colors[2];
+  },
+
+  'windowResize': () => {
+    my_title[0].innerHTML = "resize";
+    my_title[0].style.color = colors[0];
+  },
+
+  'windowMouseRightClick': () => {
+    my_title[0].innerHTML = "mouse right click";
+    my_title[0].style.color = colors[3];
+  },
+
+}
+
+
+window.addEventListener("resize", (superEventHandler.windowResize));
+window.addEventListener("contextmenu", (superEventHandler.windowMouseRightClick));
 
 let body = document.getElementsByTagName("body");
-body[0].addEventListener("mousemove", (event) => {
-  my_title[0].innerHTML = "mouse move on";
-  my_title[0].style.color = colors[1];
-});
+body[0].addEventListener("mousemove", (superEventHandler.mouseMoveOn));
+body[0].addEventListener("mouseleave", (superEventHandler.mouseLeaveOut));
 
-body[0].addEventListener("mouseleave", (event) => {
-  my_title[0].innerHTML = "mouse leave out";
-  my_title[0].style.color = colors[2];
-});

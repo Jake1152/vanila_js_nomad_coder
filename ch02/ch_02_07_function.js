@@ -1,4 +1,4 @@
-app.js
+// app.js
 function sayHello()
 {
 	console.log("hello");
