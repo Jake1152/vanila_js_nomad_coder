@@ -12,7 +12,11 @@
 
 const age = parseInt(prompt("How old are you?"))
 console.log(age)
+// isNaN() return boolean
+console.log("isNaN(age) : " + isNaN(age))
 if (isNaN(age))
 	console.log("age is NaN")
 else
 	console.log("age is number")
+
+

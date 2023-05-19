@@ -1,6 +1,6 @@
 const calculator = {
 	plus: function (a, b) {
-		console.log(a + b);
+		// console.log(a + b);
 		return a + b;
 	},
 	minus: function (a, b){
